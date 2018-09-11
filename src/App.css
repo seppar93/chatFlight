@@ -21,8 +21,18 @@
 .App-intro {
   font-size: large;
 }
+.mainTheme {
+  width: 350px;
+  height: 520px;
+  padding-top: 70px;
+  margin: 0 auto;
+}
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
