@@ -1,7 +1,7 @@
-import React from "react";
-import { ThemeProvider } from "styled-components";
+// import React from "react";
+// import { ThemeProvider } from "styled-components";
 // import ChatBot from "react-simple-chatbot";
-
+// class ThemeProvider extends React.Component {}
 const theme = {
   background: "#f5f8fb",
   fontFamily: "Helvetica Neue",
@@ -14,6 +14,6 @@ const theme = {
   userFontColor: "#4a4a4a"
 };
 
-const Theme = () => <ThemeProvider theme={theme} />;
+// const Theme = () => <ThemeProvider theme={theme} />;
 
-export default Theme;
+export default theme;
