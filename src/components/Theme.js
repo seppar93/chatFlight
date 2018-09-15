@@ -1,14 +1,19 @@
-// import React from "react";
+import React from "react";
+import { ThemeProvider } from "styled-components";
 // import ChatBot from "react-simple-chatbot";
 
-// <ChatBot
-//   steps={[
-//     {
-//       id: "hello-world",
-//       message: "Hello World!",
-//       end: true
-//     }
-//   ]}
-// />;
+const theme = {
+  background: "#f5f8fb",
+  fontFamily: "Helvetica Neue",
+  headerBgColor: "#EF6C00",
+  headerFontColor: "#fff",
+  headerFontSize: "15px",
+  botBubbleColor: "#EF6C00",
+  botFontColor: "#fff",
+  userBubbleColor: "#fff",
+  userFontColor: "#4a4a4a"
+};
 
-// export default
+const Theme = () => <ThemeProvider theme={theme} />;
+
+export default Theme;
