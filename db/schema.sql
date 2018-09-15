@@ -12,3 +12,13 @@ CREATE TABLE login(
 
     primary key (id)
 );
+
+CREATE TABLE previousFlight(
+    id INT NOT NULL AUTO_INCREMENT,
+    flight varchar (100) NOT NULL,  
+    destination VARCHAR (100) NOT NULL, 
+    departing VARCHAR (100) NOT NULL, 
+    departing_date DATE, 
+    arrival_date DATE
+    PRIMARY KEY (id)
+);
