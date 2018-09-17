@@ -6,6 +6,16 @@ import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from "styled-components";
 
 class App extends Component {
+  state = {
+    response: ''
+  };
+
+  componentDidMount() {
+    this.callApi()
+      .then(res => this.setState({ response: res.express }))
+      .catch(err => console.log(err));
+  }
+  
   render() {
     // console.log(Theme);
     return (
