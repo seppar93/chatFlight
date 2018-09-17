@@ -11,6 +11,7 @@ class App extends Component {
     return (
       <ThemeProvider theme={Theme}>
         <ChatBot
+          avatar=""
           steps={[
             {
               id: "1",
