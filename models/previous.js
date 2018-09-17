@@ -15,9 +15,8 @@ module.exports = function (sequelize,DataTypes){
         status : {
             type : DataTypes.STRING
         },
-        queryURL : {
-            type : DataTypes.STRING
-        }
+       
 
     })
+    return previousFlight;
 }
