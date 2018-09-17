@@ -4,6 +4,8 @@ import "./App.css";
 import Theme from "./components/Theme";
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from "styled-components";
+import FlightData from "./api";
+import Registration from "./components/Registration";
 
 class App extends Component {
   render() {
@@ -15,6 +17,7 @@ class App extends Component {
           steps={[
             {
               id: "1",
+              // component: <FlightData />,
               message:
                 "Welcome to ChatFlight I'm FlightBot how can I help you?",
               trigger: "2"
@@ -87,7 +90,8 @@ class App extends Component {
             },
             {
               id: "8",
-              message: "Thanks! Your account was setup successfully!",
+              // message: "Thanks! Your account was setup successfully!",
+              component: <Registration />,
               trigger: "ask-flight-search"
             },
             {
@@ -111,14 +115,14 @@ class App extends Component {
             {
               id: "flight-search",
               user: true,
-              // message: "searching...",
-              message: "THIS IS WHERE THE COMMPONENT IS FOR API",
               // waitAction: true,
+
               trigger: "searching"
             },
             {
               id: "searching",
               message: "searching...",
+              // component: <DBPedia />,
               // TODO: remove message and add API componenet here
               trigger: "save-option"
             },

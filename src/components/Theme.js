@@ -1,4 +1,4 @@
-// import React from "react";
+import React from "react";
 // import { ThemeProvider } from "styled-components";
 // import ChatBot from "react-simple-chatbot";
 // class ThemeProvider extends React.Component {}
