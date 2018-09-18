@@ -11,15 +11,15 @@ import Video from "./mapfinal.mp4";
 
 class App extends Component {
   state = {
-    response: ''
+    response: ""
   };
 
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
-  }
-  
+  // componentDidMount() {
+  //   this.callApi()
+  //     .then(res => this.setState({ response: res.express }))
+  //     .catch(err => console.log(err));
+  // }
+
   render() {
     return (
       <div className="App">
