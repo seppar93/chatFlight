@@ -38,12 +38,7 @@
 
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoibW9tZW5hbWFzb29kIiwiYSI6ImNqbTI5dXhzejFxem4zcG10ajhkbjkzdTQifQ.nFYeAg4QTLY3eFRDZR8Y6w';
-// This is an advanced example that is compatible with
-// modern browsers and IE9+ - the trick it uses is animation
-// of SVG properties, which makes it relatively efficient for
-// the effect produced. That said, the same trick means that the
-// animation is non-geographical - lines interpolate in the same
-// amount of time regardless of trip length.
+
 
 // Show the whole world in this first view.
 map = L.mapbox.map('map', 'mapbox.satellite')
@@ -87,9 +82,6 @@ for (var i = 0; i < pairs.length; i++) {
     .addTo(map);
     var totalLength = newLine._path.getTotalLength();
     newLine._path.classList.add('path-start');
-    // This pair of CSS properties hides the line initially
-    // See http://css-tricks.com/svg-line-animation-works/
-    // for details on this trick.
     newLine._path.style.strokeDashoffset = totalLength;
     newLine._path.style.strokeDasharray = totalLength;
     // Offset the timeout here: setTimeout makes a function
