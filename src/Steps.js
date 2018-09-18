@@ -14,7 +14,8 @@ const steps = [
     id: "2",
     options: [
       { value: 1, label: "Login", trigger: "3" },
-      { value: 2, label: "Register", trigger: "5" }
+      { value: 2, label: "Register", trigger: "5" },
+      { value: 3, label: "Flight Search", trigger: "ask-flight-search" }
     ]
   },
   {

@@ -19,22 +19,18 @@ class Registration extends Component {
 
     this.setState({ username, password });
 
-    (async () => {
-      const rawResponse = await fetch(
-        "mysql://b4625caa300f27:4ea1713a@us-cdbr-iron-east-01.cleardb.net/heroku_ef27c5a8dfe37e9?reconnect=true",
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ a: 1, b: "Textual content" })
-        }
-      );
-      const content = await rawResponse.json();
-
-      console.log(content);
-    })();
+    fetch("http://localhost:3000/", {
+      method: "POST",
+      // mode: "CORS",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password
+      })
+    });
   }
   render() {
     const { username, password } = this.state;
