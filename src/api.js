@@ -52,19 +52,29 @@ class FlightData extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [],
+      flightTime: null
     };
   }
   componentDidMount() {
     fetch(
-      "http://aviation-edge.com/v2/public/flights?key=161093-9c54a3&flightIata=FZ337"
+      "https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/DL/1976/arr/2018/09/17?appId=383f455e&appKey=e09a3ce6afc900e0ba14813a0921806a&utc=false"
     )
       .then(res => res.json())
       .then(
         result => {
-          this.setState({ isLoaded: true, items: result.items });
-        }, // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
+          console.log(
+            result.flightStatuses[0].operationalTimes.estimatedGateArrival
+              .dateLocal
+          );
+          this.setState({
+            isLoaded: true,
+            items: result,
+            flightTime:
+              result.flightStatuses[0].operationalTimes.estimatedGateArrival
+                .dateLocal
+          });
+        }, // instead of a catch() block so that we don't swallow // Note: it's important to handle errors here
         // exceptions from actual bugs in components.
         error => {
           this.setState({ isLoaded: true, error });
@@ -75,7 +85,6 @@ class FlightData extends Component {
   render() {
     const { error, isLoaded, items } = this.state;
     console.log(items);
-
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -83,13 +92,12 @@ class FlightData extends Component {
     } else {
       return (
         <ul>
-          {items}
-
-          {/* {items.map(item => (
-            <li key={item.name}>
+          {/* {this.state.items.map(item => (
+            <li key={item}>
               {item.name} {item.price}
             </li>
           ))} */}
+          {this.state.flightTime}
         </ul>
       );
     }

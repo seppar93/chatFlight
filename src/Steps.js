@@ -1,10 +1,12 @@
 import React from "react";
+import Registration from "./components/Registration";
+import FlightData from "./api";
 
 const steps = [
   {
     id: "1",
-    // component: <FlightData />,
-    message: "Welcome to ChatFlight I'm FlightBot how can I help you?",
+    component: <FlightData />,
+    // message: "Welcome to ChatFlight I'm FlightBot how can I help you?",
     trigger: "2"
   },
   {
@@ -74,8 +76,8 @@ const steps = [
   },
   {
     id: "8",
-    message: "Thanks! Your account was setup successfully!",
-    // component: <Registration />,
+    // message: "Thanks! Your account was setup successfully!",
+    component: <Registration />,
     trigger: "ask-flight-search"
   },
   {
