@@ -14,12 +14,6 @@ class App extends Component {
     response: ""
   };
 
-  // componentDidMount() {
-  //   this.callApi()
-  //     .then(res => this.setState({ response: res.express }))
-  //     .catch(err => console.log(err));
-  // }
-
   render() {
     return (
       <div className="App">

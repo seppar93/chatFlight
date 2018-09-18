@@ -97,20 +97,44 @@ const steps = [
   },
   {
     id: "ask-flight-search",
-    message: "What flight would you like to to search {previousValue}?",
-    trigger: "flight-search"
+    message: "Where are you travling from?",
+    trigger: "cityOrig"
   },
   {
-    id: "flight-search",
+    id: "cityOrig",
     user: true,
     // waitAction: true,
 
+    trigger: "ask-destination"
+  },
+  {
+    id: "ask-destination",
+    message: "Where would you look to travel to?",
+    trigger: "cityDest"
+  },
+  {
+    id: "cityDest",
+    user: true,
+    trigger: "ask-departure"
+  },
+  {
+    id: "ask-departure",
+    message: "when would you like to leave please answer in (yyyy-mm-dd)",
+    trigger: "depDat"
+  },
+  {
+    id: "depDat",
+    user: true,
+    trigger: "searching-message"
+  },
+  {
+    id: "searching-message",
+    message: "searching...",
     trigger: "searching"
   },
   {
     id: "searching",
-    message: "searching...",
-    // component: <DBPedia />,
+    component: <FlightData />,
     // TODO: remove message and add API componenet here
     trigger: "save-option"
   },
