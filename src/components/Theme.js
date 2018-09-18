@@ -36,6 +36,7 @@ const MainTheme = props => {
       <ThemeProvider theme={theme}>
         <ChatBot
           steps={props.steps}
+          Registration={props.Registration}
           handleEnd={props.handleEnd}
           headerComponent={<HC headerTitle={"Flight Bot"} />}
         />

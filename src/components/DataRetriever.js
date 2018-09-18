@@ -7,14 +7,14 @@ class DataRetriever extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      username: null,
-      password: null,
-      items: []
+      username: "",
+      password: "",
+      Departure: []
     };
   }
   componentDidMount() {
     fetch(
-      "http://aviation-edge.com/v2/public/flights?key=161093-9c54a3&flightIata=FZ337"
+      "mysql://b4625caa300f27:4ea1713a@us-cdbr-iron-east-01.cleardb.net/heroku_ef27c5a8dfe37e9?reconnect=true"
     )
       .then(res => res.json())
       .then(
@@ -22,8 +22,7 @@ class DataRetriever extends Component {
           this.setState({
             isLoaded: true,
             username: result.username,
-            password: result.password,
-            items: result.items
+            password: result.password
           });
         },
         error => {
@@ -41,15 +40,11 @@ class DataRetriever extends Component {
           <tbody>
             <tr>
               <td>Departure</td>
-              <td>{Departure.value}</td>
+              {/* <td>{username}</td> */}
             </tr>
             <tr>
               <td>Arrival</td>
-              <td>{Arrival.value}</td>
-            </tr>
-            <tr>
-              <td>Status</td>
-              <td>{Status.value}</td>
+              {/* <td>{password}</td> */}
             </tr>
           </tbody>
         </table>

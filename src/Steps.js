@@ -1,12 +1,13 @@
 import React from "react";
 import Registration from "./components/Registration";
 import FlightData from "./api";
+import DataRetriever from "./components/DataRetriever";
 
 const steps = [
   {
     id: "1",
-    component: <FlightData />,
-    // message: "Welcome to ChatFlight I'm FlightBot how can I help you?",
+    // component: <DataRetriever />,
+    message: "Welcome to ChatFlight I'm FlightBot how can I help you?",
     trigger: "2"
   },
   {
@@ -88,7 +89,8 @@ const steps = [
   },
   {
     id: "previous-search",
-    message: "PREVIOUS SEARCH",
+    // message: "PREVIOUS SEARCH",
+    component: <DataRetriever />,
     // TODO: previous search component
     trigger: "ask-flight-search"
   },
