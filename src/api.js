@@ -22,7 +22,7 @@ class FlightData extends Component {
     const { steps } = this.props;
     const { cityOrig, cityDest, depDate, emptyValue } = steps;
     // this.setState({ cityOrig, cityDest, depDate });
-    // `https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=FI2A7xzrlGwGVFwwHzYvtNhGbAOxj7zD&origin=${cityOrig.value}&destination=${cityDest.value}&departure_date=${depDate}&number_of_results=3`
+    // `https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=FI2A7xzrlGwGVFwwHzYvtNhGbAOxj7zD&origin=${cityOrig.value}&destination=${cityDest.value}&departure_date=2018-10-19&number_of_results=3`
     fetch(
       "https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=FI2A7xzrlGwGVFwwHzYvtNhGbAOxj7zD&origin=BOS&destination=LON&departure_date=2018-10-19&number_of_results=3"
     )
@@ -53,7 +53,10 @@ class FlightData extends Component {
         },
         error => {
           // exceptions from actual bugs in components. // instead of a catch() block so that we don't swallow // Note: it's important to handle errors here
-          this.setState({ isLoaded: true, error });
+          this.setState({
+            isLoaded: true,
+            error
+          });
         }
       );
   }

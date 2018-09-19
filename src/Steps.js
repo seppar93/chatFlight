@@ -2,6 +2,7 @@ import React from "react";
 import Registration from "./components/Registration";
 import FlightData from "./api";
 import DataRetriever from "./components/DataRetriever";
+// import NeuralMessage from "./components/NeuralMessage";
 
 const steps = [
   {
@@ -115,6 +116,11 @@ const steps = [
   {
     id: "ask-departure",
     message: "when would you like to leave please answer in (yyyy-mm-dd)",
+    trigger: "depDate"
+  },
+  {
+    id: "depDate",
+    user: true,
     trigger: "searching-message"
   },
   {
@@ -130,21 +136,22 @@ const steps = [
   },
   {
     id: "save-option",
-    message: "would you like to save the result of your search?",
+    message:
+      "would you like to use our nueral network to know if the price is reduce?",
     trigger: "save-message"
   },
   {
     id: "save-message",
     options: [
-      { value: 1, label: "Yes", trigger: "save" },
+      { value: 1, label: "Yes", trigger: "Neural-Message" },
       { value: 2, label: "No", trigger: "10" }
     ]
   },
   {
-    id: "save",
-    message: "your flight information has been saved!",
+    id: "Neural-Message",
+    message: "The probability of price reduction on your flight is 32%",
+    // componenet: <NeuralMessage />,
     trigger: "10"
-    // TODO: add component to save
   },
   {
     id: "10",

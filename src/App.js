@@ -22,7 +22,7 @@ class App extends Component {
           {/* <source src={Video} type="video/mp4" /> */}
           {/* </video> */}
           <h1>Welcome to ChatFlight</h1>
-          <h2>The simplist way to check on your flight!</h2>
+          <h2>Find the cheapest flights for today!</h2>
         </div>
         <div className="mainTheme">
           <CB />
