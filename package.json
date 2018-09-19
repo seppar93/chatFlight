@@ -1,19 +1,19 @@
 {
-  "name": "chat_flight",
+  "name": "my-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.5.0",
-    "react-dom": "^16.5.0",
+    "body-parser": "^1.18.3",
+    "brainjs": "^0.7.4",
+    "moment": "^2.22.2",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
     "react-scripts": "1.1.5",
     "react-simple-chatbot": "^0.3.7",
-    "styled-components": "^3.4.6",
-    "express": "*",
-    "mysql": "*",
-    "sequelize": "*",
-    "mysql2": "*",
-    "dotenv": "*",
-    "body-parser": "*"
+    "sequelize": "^4.38.1",
+    "styled-components": "^3.4.9"
   },
   "scripts": {
     "start": "react-scripts start",
