@@ -27,8 +27,8 @@ class Registration extends Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        username: username,
-        password: password
+        username: username.value,
+        password: password.value
       })
     });
   }
