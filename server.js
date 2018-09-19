@@ -6,7 +6,7 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
-
+var cors = require ('cors');
 // Sets up the Express App
 // =============================================================
 var app = express();
