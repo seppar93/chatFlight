@@ -4,14 +4,14 @@ module.exports = function(app) {
 
     // assuming the database is exported as login
     //This call would just be for us to view all the users so I don't know where we put this specifically but thought I'd throw it in
-    app.get("/api/login", function(req, res) {
+    app.get("/api/login", function(req, res, next) {
       db.user.findAll({}).then(function(data){
         console.log(data);
       });
     });
 
     //creating a new user again assuming database is exported as login
-    app.post("/api/login", function(req, res){
+    app.post("/api/login", function(req, res, next){
         db.user.create({
             username: req.body.username,
             password: req.body.password
@@ -19,7 +19,7 @@ module.exports = function(app) {
     });
 
     //this is what updates the previous flights table in the database. 
-    app.put("/api/previousFlight", function(req, res) {
+    app.put("/api/previousFlight", function(req, res, next) {
        
         db.previousFlight.update({
             table: {
@@ -36,7 +36,7 @@ module.exports = function(app) {
         });
       });
       //this gets all the user login info to be used for login
-      app.get("/api/login", function(req, res) {
+      app.get("/api/login", function(req, res, next) {
         db.user.findAll({
             attributes: ['id'],
             attributes: ['username'],
