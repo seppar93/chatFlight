@@ -4,10 +4,7 @@
     "password": "4ea1713a",
     "database": "heroku_ef27c5a8dfe37e9",
     "host": "us-cdbr-iron-east-01.cleardb.net",
-<<<<<<< HEAD
     "port": 3306,
-=======
->>>>>>> 25594637cd5134c8c0900708a86c72971d747fa6
     "dialect": "mysql"
   },
   "test": {

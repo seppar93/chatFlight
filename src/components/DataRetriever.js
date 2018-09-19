@@ -9,7 +9,9 @@ class DataRetriever extends Component {
       isLoaded: false,
       username: "",
       password: "",
-      Departure: []
+      depTime: "",
+      arrTime: "",
+      price: ""
     };
   }
   componentDidMount() {
@@ -31,20 +33,23 @@ class DataRetriever extends Component {
       );
   }
   render() {
-    const { error, isLoaded, items } = this.state;
-    console.log(items);
+    const { error, isLoaded, depTime, arrTime, price } = this.state;
     return (
       <div style={{ width: "100%" }}>
-        <h3>Previous Search</h3>
+        <h3>Flight information: </h3>
         <table>
           <tbody>
             <tr>
-              <td>Departure</td>
-              {/* <td>{username}</td> */}
+              <td>Departure:</td>
+              <td>{depTime}</td>
             </tr>
             <tr>
-              <td>Arrival</td>
-              {/* <td>{password}</td> */}
+              <td>Arrival:</td>
+              <td>{arrTime}</td>
+            </tr>
+            <tr>
+              <td>price:</td>
+              <td>${price}</td>
             </tr>
           </tbody>
         </table>

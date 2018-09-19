@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-// import Moment from "moment";
+import Moment from "moment";
 
 class FlightData extends Component {
   constructor(props) {
@@ -11,10 +11,9 @@ class FlightData extends Component {
       cityOrig: "",
       cityDest: "",
       depDate: "",
-      emptyValue: "",
+      // emptyValue: "",
       depTime: null,
       arrTime: null,
-      connection: null,
       price: null
     };
   }
@@ -23,31 +22,34 @@ class FlightData extends Component {
     const { steps } = this.props;
     const { cityOrig, cityDest, depDate, emptyValue } = steps;
     // this.setState({ cityOrig, cityDest, depDate });
-
+    // `https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=FI2A7xzrlGwGVFwwHzYvtNhGbAOxj7zD&origin=${cityOrig.value}&destination=${cityDest.value}&departure_date=${depDate}&number_of_results=3`
     fetch(
-      `https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=FI2A7xzrlGwGVFwwHzYvtNhGbAOxj7zD&origin=${
-        cityOrig.value
-      }&destination=${
-        cityDest.value
-      }&departure_date=${depDate}&number_of_results=3`
-      // "https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=FI2A7xzrlGwGVFwwHzYvtNhGbAOxj7zD&origin=[object%20Object]&destination=[object%20Object]&departure_date=undefined&number_of_results=3".
+      "https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=FI2A7xzrlGwGVFwwHzYvtNhGbAOxj7zD&origin=BOS&destination=LON&departure_date=2018-10-19&number_of_results=3"
     )
       .then(res => res.json())
       .then(
-        result => {
-          console.log(cityOrig);
-          console.log(cityDest);
-          console.log(depDate);
-          console.log(emptyValue);
+        data => {
+          // console.log(cityOrig);
+          // console.log(cityDest);
+          // console.log(depDate);
+          // console.log(emptyValue);
+          // console.log(result);
 
-          // this.setState({
-          //   isLoaded: true,
-          //   items: result,
-          //   flightTime: Moment(
-          //     result.flightStatuses[0].operationalTimes.flightPlanPlannedArrival
-          //       .dateLocal
-          //   ).format("MMMM Do YYYY, h:mm:ss a")
-          // });
+          this.setState({
+            isLoaded: true,
+            depTime: Moment(
+              data.results[0].itineraries[0].outbound.flights[0].departs_at
+            ).format("MMMM Do YYYY, h:mm:ss a"),
+            arrTime: Moment(
+              data.results[0].itineraries[0].outbound.flights[0].arrives_at
+            ).format("MMMM Do YYYY, h:mm:ss a"),
+            price: data.results[0].fare.total_price
+
+            // flightTime: Moment(
+            //   result.flightStatuses[0].operationalTimes
+            //     .flightPlanPlannedArrival.dateLocal
+            // ).format("MMMM Do YYYY, h:mm:ss a")
+          });
         },
         error => {
           // exceptions from actual bugs in components. // instead of a catch() block so that we don't swallow // Note: it's important to handle errors here
@@ -57,7 +59,16 @@ class FlightData extends Component {
   }
 
   render() {
-    const { error, isLoaded, cityOrig, cityDest, depDate } = this.state;
+    const {
+      error,
+      isLoaded,
+      cityOrig,
+      cityDest,
+      depDate,
+      depTime,
+      arrTime,
+      price
+    } = this.state;
     // console.log(cityOrig);
     // if (error) {
     //   return <div>Error: {error.message}</div>;
@@ -65,16 +76,26 @@ class FlightData extends Component {
     //   return <div>Loading...</div>;
     // } else {
     return (
-      <ul>
-        {/* {this.state.items.map(item => (
-            <li key={item}>
-              {item.name} {item.price}
-            </li>
-          ))} */}
-        your flight is arriving at: {depDate}
-      </ul>
+      <div style={{ width: "100%" }}>
+        <h3>Flight information: </h3>
+        <table>
+          <tbody>
+            <tr>
+              <td>Departure:</td>
+              <td>{depTime}</td>
+            </tr>
+            <tr>
+              <td>Arrival:</td>
+              <td>{arrTime}</td>
+            </tr>
+            <tr>
+              <td>price:</td>
+              <td>${price}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     );
-    // }
   }
 }
 

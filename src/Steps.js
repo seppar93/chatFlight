@@ -118,16 +118,6 @@ const steps = [
   {
     id: "ask-departure",
     message: "when would you like to leave please answer in (yyyy-mm-dd)",
-    trigger: "depDat"
-  },
-  {
-    id: "depDat",
-    user: true,
-    trigger: "empty-value"
-  },
-  {
-    id: "empty-value",
-    user: true,
     trigger: "searching-message"
   },
   {
@@ -138,7 +128,7 @@ const steps = [
   {
     id: "searching",
     component: <FlightData />,
-    // TODO: remove message and add API componenet here
+    // waitAction: true,
     trigger: "save-option"
   },
   {
