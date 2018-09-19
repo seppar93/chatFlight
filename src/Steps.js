@@ -81,7 +81,7 @@ const steps = [
     id: "8",
     // message: "Thanks! Your account was setup successfully!",
     component: <Registration />,
-    trigger: "ask-flight-search"
+    trigger: "10"
   },
   {
     id: "9",
