@@ -19,7 +19,7 @@ class Registration extends Component {
 
     this.setState({ username, password });
 
-    fetch("api/login", {
+    fetch("http://localhost:8080/", {
       method: "POST",
       // mode: "CORS",
       headers: {
