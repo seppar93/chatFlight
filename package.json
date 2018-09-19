@@ -7,12 +7,11 @@
   },
   "dependencies": {
     "body-parser": "*",
-
     "chai": "^4.1.2",
     "chai-http": "^4.2.0",
+    "cors": "^2.8.4",
     "dotenv": "*",
     "moment": "^2.22.2",
-
     "mysql": "*",
     "mysql2": "*",
     "react": "^16.5.0",
@@ -20,11 +19,8 @@
     "react-scripts": "1.1.5",
     "react-simple-chatbot": "^0.3.7",
     "sequelize": "*",
-
     "styled-components": "^3.4.6",
     "webpack": "^4.19.0"
-
-
   },
   "scripts": {
     "start": "react-scripts start",
