@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import brain from "brain.js";
+// import brain from "brain.js";
 
 class DataRetriever extends Component {
   constructor(props) {
