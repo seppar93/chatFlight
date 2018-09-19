@@ -103,8 +103,6 @@ const steps = [
   {
     id: "cityOrig",
     user: true,
-    // waitAction: true,
-
     trigger: "ask-destination"
   },
   {
@@ -124,6 +122,11 @@ const steps = [
   },
   {
     id: "depDat",
+    user: true,
+    trigger: "empty-value"
+  },
+  {
+    id: "empty-value",
     user: true,
     trigger: "searching-message"
   },

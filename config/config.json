@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "chatFlight_db",
-    "port" : 8889,
-    "host": "localhost",
+    "username": "b4625caa300f27",
+    "password": "4ea1713a",
+    "database": "heroku_ef27c5a8dfe37e9",
+    "host": "us-cdbr-iron-east-01.cleardb.net",
+    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
@@ -22,4 +22,3 @@
     "dialect": "mysql"
   }
 }
-

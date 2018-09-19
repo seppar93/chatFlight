@@ -11,6 +11,7 @@ class FlightData extends Component {
       cityOrig: "",
       cityDest: "",
       depDate: "",
+      emptyValue: "",
       depTime: null,
       arrTime: null,
       connection: null,
@@ -20,14 +21,15 @@ class FlightData extends Component {
 
   componentDidMount() {
     const { steps } = this.props;
-    const { cityOrig, cityDest, depDate } = steps;
+    const { cityOrig, cityDest, depDate, emptyValue } = steps;
+    // this.setState({ cityOrig, cityDest, depDate });
 
     fetch(
       `https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=FI2A7xzrlGwGVFwwHzYvtNhGbAOxj7zD&origin=${
         cityOrig.value
-      }&destination=${cityDest.value}&departure_date=${
-        depDate.value
-      }&number_of_results=3`
+      }&destination=${
+        cityDest.value
+      }&departure_date=${depDate}&number_of_results=3`
       // "https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=FI2A7xzrlGwGVFwwHzYvtNhGbAOxj7zD&origin=[object%20Object]&destination=[object%20Object]&departure_date=undefined&number_of_results=3".
     )
       .then(res => res.json())
@@ -36,6 +38,7 @@ class FlightData extends Component {
           console.log(cityOrig);
           console.log(cityDest);
           console.log(depDate);
+          console.log(emptyValue);
 
           // this.setState({
           //   isLoaded: true,
@@ -54,7 +57,7 @@ class FlightData extends Component {
   }
 
   render() {
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded, cityOrig, cityDest, depDate } = this.state;
     // console.log(cityOrig);
     // if (error) {
     //   return <div>Error: {error.message}</div>;
@@ -68,7 +71,7 @@ class FlightData extends Component {
               {item.name} {item.price}
             </li>
           ))} */}
-        your flight is arriving at: {items}
+        your flight is arriving at: {depDate}
       </ul>
     );
     // }

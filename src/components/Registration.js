@@ -19,7 +19,7 @@ class Registration extends Component {
 
     this.setState({ username, password });
 
-    fetch("http://localhost:3000/", {
+    fetch("api/login", {
       method: "POST",
       // mode: "CORS",
       headers: {
@@ -27,8 +27,8 @@ class Registration extends Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        username: username,
-        password: password
+        username: username.value,
+        password: password.value
       })
     });
   }
