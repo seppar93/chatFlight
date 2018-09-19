@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "body-parser": "^1.18.3",
+    "brainjs": "^0.7.4",
     "moment": "^2.22.2",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.1",
