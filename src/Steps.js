@@ -84,15 +84,12 @@ const steps = [
   },
   {
     id: "9",
-    // TODO: user name added here
-    message: "Hello {previousValue} here are your previous seraches",
+    message: "here are your previous seraches",
     trigger: "previous-search"
   },
   {
     id: "previous-search",
-    // message: "PREVIOUS SEARCH",
     component: <DataRetriever />,
-    // TODO: previous search component
     trigger: "ask-flight-search"
   },
   {

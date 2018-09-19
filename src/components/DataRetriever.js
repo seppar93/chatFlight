@@ -9,9 +9,9 @@ class DataRetriever extends Component {
       isLoaded: false,
       username: "",
       password: "",
-      depTime: "",
-      arrTime: "",
-      price: ""
+      depTime: "October 19th 2018, 7:00:00 pm",
+      arrTime: "October 20th 2018, 4:30:00 am",
+      price: "337.02"
     };
   }
   componentDidMount() {
