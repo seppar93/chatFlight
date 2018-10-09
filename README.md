@@ -23,5 +23,8 @@ in progress
 ## Tech/framework used
 
 <b>Built with</b>
+- [flightstatsAPI](https://developer.flightstats.com/)
+- [create-react-app](https://www.npmjs.com/package/create-react-app)
+- [React Simple Chatbot](https://lucasbassetti.com.br/react-simple-chatbot/)
+- [Sequelize](http://docs.sequelizejs.com/)
 
-## API Reference
